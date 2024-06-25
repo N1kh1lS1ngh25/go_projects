@@ -14,6 +14,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/ses"
 	"golang.org/x/sys/windows/svc"
 	"golang.org/x/sys/windows/svc/mgr"
+
 )
 
 var emailSent bool = false
@@ -138,11 +139,8 @@ func sendEmail() {
 	input := &ses.SendEmailInput{
 		Destination: &ses.Destination{
 			ToAddresses: []*string{
-				aws.String("nikhils@readywire.com"),
-				aws.String("sanjayp@readywire.com"),
-				aws.String("arpithak@readywire.com"),
-				aws.String("amans@readywire.com"),
-				aws.String("helpdesk@kensium.com"),
+				aws.String("youemailid@readywire.com"),
+				
 			},
 		},
 		Message: &ses.Message{
@@ -157,7 +155,7 @@ func sendEmail() {
 				Data:    aws.String("ALERT: RabbitMQ is down"),
 			},
 		},
-		Source: aws.String("admin01@readywire.com"),
+		Source: aws.String("admin01@example.com"),
 	}
 
 	// Send the email
